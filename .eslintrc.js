@@ -3,11 +3,11 @@ module.exports = {
         "browser": true,
         "es2021": true
     },
-    "extends": {
-        "eslint:recommended":any,
-        "plugin:react/recommended":any,
-        "@react-native-community":any
-    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "@react-native-community"
+    ],
     "parserOptions":{
         "ecmaVersion": "latest",
         "sourceType":"module"
