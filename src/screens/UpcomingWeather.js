@@ -1,6 +1,6 @@
 import React from "react";
-import { SafeAreaView, Platform, StatusBar, StyleSheet, Text, FlatList} from "react-native";
-import WeatherItem from './WeatherItem'
+import { SafeAreaView, Platform, StatusBar, StyleSheet, Text, FlatList, ImageBackground} from "react-native";
+import WeatherItem from '../components/WeatherItem'
 
 const DATA = [
     {
@@ -43,13 +43,17 @@ const UpcomingWeather = () =>{
         min = {item.main.temp_min} 
         max = {item.main.temp_max}/>
     )
+    const { droidSafeView, image} = styles
     return (
-        <SafeAreaView style = {styles.droidSafeView}>
-            <Text>Upcoming Weather</Text>
-            <FlatList
-                data = {DATA}
-                renderItem={renderItem}
-            />
+        <SafeAreaView style = {droidSafeView}>
+            <ImageBackground source={require('../../assets/upcoming-background.jpg')} style = {image}>
+                <Text>Upcoming Weather</Text>
+                <FlatList
+                    data = {DATA}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.dt_txt}
+                />
+            </ImageBackground>
         </SafeAreaView>
     )
 }
@@ -57,7 +61,11 @@ const UpcomingWeather = () =>{
 const styles = StyleSheet.create({
     droidSafeView:{
         flex: 1,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        backgroundColor: 'royalblue'
+    },
+    image:{
+        flex: 1
     }
 })
 

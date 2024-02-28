@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    backgroundColor: 'green'
+    backgroundColor: 'pink'
   },
   highLowWrapper:{
     flexDirection: 'row'
